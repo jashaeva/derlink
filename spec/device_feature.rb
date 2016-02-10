@@ -32,6 +32,14 @@ describe "AdminPage" do
       expect(page.find(promo_name)).to be_truthy        
     end
 
+    it "user can not add another promo with the same name" do
+      page.add(promo_name)           
+      page = AdminPage.new(browser, true)           
+      page.add(promo_name)           
+      expect(page.alert?).to be_truthy
+      page.ok
+    end
+
 
     after (:all) do
       page = AdminPage.new(browser, true)      
