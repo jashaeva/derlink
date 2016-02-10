@@ -40,15 +40,22 @@ describe "AdminPage" do
       page.ok
     end
 
-
-    after (:all) do
+    it "user can delete some promo" do
+      expect(page.find(promo_name)).to be_truthy      
+      page.delete(promo_name)                   
       page = AdminPage.new(browser, true)      
       expect(page.has_expected_element?).to be_truthy      
-      page.delete(promo_name)                 
-      page = AdminPage.new(browser, true)      
-      expect(page.has_expected_element?).to be_truthy      
-      expect(page.find(promo_name)).to be_falsey       
+      expect(page.find(promo_name)).to be_falsey           
     end
+
+    # after (:all) do
+    #   page = AdminPage.new(browser, true)      
+    #   expect(page.has_expected_element?).to be_truthy      
+    #   page.delete(promo_name)                 
+    #   page = AdminPage.new(browser, true)      
+    #   expect(page.has_expected_element?).to be_truthy      
+    #   expect(page.find(promo_name)).to be_falsey       
+    # end
   end  
 
 end
