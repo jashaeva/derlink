@@ -1,0 +1,18 @@
+@@ set 
+    domain    anuser.onederlink.7bits.it
+    base_url  http://dev:1337dev@${domain}
+    promo     gazeta.ru
+
+@@ parameterized
+    | browser  |   
+    | chrome   |
+
+@@ parameterized
+    | deviceName | tags      | size     |
+    | Mobile_m   | mobile    | 320x600  |    
+    | Tablet_m   | tablet    | 640x480  |    
+    | Desktop_m  | desktop   | 1024x800 |        
+
+Home page on ${deviceName} device in ${browser} browser
+    selenium  ${browser} ${base_url}/${promo} ${size}
+        check link.gspec --include "${tags}"

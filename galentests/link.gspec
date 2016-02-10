@@ -1,0 +1,15 @@
+@objects
+    body    body
+
+= Header section = 
+    @on desktop
+        body:    
+            text contains "SpecieBotaniche"
+    
+    @on tablet
+        body:
+            text contains "Orchidaceae"
+
+    @on mobile
+        body:
+            text contains "About CERN"
